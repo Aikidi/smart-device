@@ -5,7 +5,7 @@
 }
 
 html {
-  font-family: "Open Sans", "Arial", sans-serif;
+  font-family: "PT Mono", "Arial", sans-serif;
   box-sizing: border-box;
   scroll-behavior: smooth;
 }
@@ -14,7 +14,6 @@ body {
   position: relative;
   margin: 0 auto;
   min-height: 100vh;
-  //max-width: $desktop-width;
   min-width: 320px;
   display: flex;
   flex-direction: column;
@@ -44,21 +43,4 @@ img {
 
 a {
   text-decoration: none;
-}
-
-.section-title {
-  margin-top: 0;
-  margin-bottom: 21px;
-  text-align: center;
-  font-size: 30px;
-  line-height: 30px;
-  font-weight: 600;
-  letter-spacing: -0.5%;
-}
-
-@media (max-width: $tablet-width) {
-  .section-title {
-    font-size: 24px;
-    line-height: 41px;
-  }
 }
