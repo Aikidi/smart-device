@@ -1,0 +1,147 @@
+.callback-form {
+  padding: 92px 0 111px 0;
+  background-color: $deep-sky-blue;
+  color: $white;
+  background-image: url("../img/form-bkg@1x.png");
+  background-repeat: no-repeat;
+  background-position-x: calc(50% + 87px);
+  background-position-y: -60px;
+  background-size: 1745px 765px;
+
+  @media (min-resolution: 2dppx) {
+    background-image: url("../img/form-bkg@2x.png");
+  }
+}
+
+.callback-form .content-wrapper {
+  max-width: 1190px;
+}
+
+.callback-form__content {
+  width: 100%;
+  max-width: 570px;
+  margin-left: auto;
+}
+
+.callback-form .site-form__title {
+  margin-bottom: 10px;
+}
+
+.callback-form form {
+  grid-gap: 40px 30px;
+}
+
+.callback-form p {
+  margin-bottom: 52px;
+}
+
+.callback-form .site-form__field {
+  background-color: $deep-sky-blue;
+
+  &--checkbox {
+    background-color: transparent;
+  }
+}
+
+.callback-form input {
+  min-height: 50px;
+  color: $white;
+}
+
+.callback-form textarea {
+  min-height: 154px;
+  color: $white;
+}
+
+.callback-form button {
+  margin-right: 30px;
+  max-width: 270px;
+}
+
+@media (max-width: $tablet-width) {
+  .callback-form {
+    padding: 80px 0 103px 0;
+    background-image: none;
+  }
+
+  .callback-form__content {
+    max-width: 590px;
+    margin-right: auto;
+  }
+
+  .callback-form .site-form__title {
+    margin-bottom: 18px;
+  }
+
+  .callback-form form {
+    grid-gap: 42px 30px;
+  }
+
+  .callback-form input {
+    min-height: 52px;
+  }
+
+  .callback-form textarea {
+    min-height: 159px;
+  }
+
+  .callback-form .site-form__field--checkbox label {
+    padding-left: 42px;
+  }
+
+  .callback-form button {
+    max-width: 282px;
+  }
+}
+
+
+@media (max-width: $mobile-width) {
+  .callback-form {
+    padding: 30px 0 42px 0;
+  }
+
+  .callback-form .site-form__title {
+    margin-bottom: 14px;
+  }
+
+  .callback-form form {
+    grid-gap: 30px;
+  }
+
+  .callback-form p {
+    margin-bottom: 26px;
+  }
+
+  .callback-form .site-form__field {
+    grid-column: 1 / 3;
+  }
+
+  .callback-form textarea {
+    min-height: 104px;
+  }
+
+  .callback-form .site-form__bottom {
+    flex-direction: column;
+    margin-top: -3px;
+  }
+
+  .callback-form button {
+    margin-right: 0;
+    margin-bottom: 23px;
+    max-width: 100%;
+  }
+
+  .callback-form .site-form__field--checkbox label {
+    padding-left: 34px;
+  }
+
+  .callback-form .site-form__field--checkbox label::before {
+    left: 0;
+    top: 9px;
+  }
+
+  .callback-form .site-form__field--checkbox input:checked + label::after {
+    left: 4px;
+    top: 11px;
+  }
+}

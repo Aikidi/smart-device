@@ -1,0 +1,61 @@
+.popup {
+  display: none;
+  position: fixed;
+  z-index: 5;
+  top: 50vh;
+  left: 50vw;
+  transform: translate(-50%, -50%);
+  width: 100%;
+  max-width: 490px;
+  min-height: 605px;
+  padding: 30px 39px;
+  background-color: $deep-sky-blue;
+  color: $white;
+
+  &--open {
+    display: block;
+  }
+}
+
+.popup__close-button {
+  position: absolute;
+  top: 17px;
+  right: 20px;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+
+  &::before,
+  &::after {
+    position: absolute;
+    left: 0;
+    content: "";
+    width: 22px;
+    height: 1px;
+    background-color: $white;
+  }
+
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+
+  &:hover {
+    &::before,
+    &::after {
+      background-color: $dim-gray;
+    }
+  }
+
+  &:active {
+    &::before,
+    &::after {
+      background-color: $silver;
+    }
+  }
+}

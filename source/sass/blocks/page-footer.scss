@@ -1,0 +1,226 @@
+.page-footer {
+  margin-top: auto;
+}
+
+.page-footer__top {
+  padding: 65px 0 60px 0;
+}
+
+.page-footer__top .content-wrapper {
+  display: grid;
+  grid-template-columns: 27% 1fr 1fr;
+  grid-template-rows: auto auto;
+  grid-gap: 40px;
+}
+
+.page-footer__top .page-footer__copyright {
+  display: none;
+}
+
+.page-footer__top-left {
+  grid-column: 1/2;
+  grid-row: 1/3;
+  display: grid;
+  grid-gap: 40px;
+}
+
+.page-footer__top-right {
+  grid-column: 2/4;
+  grid-row: 1/3;
+}
+
+.page-footer__site-nav {
+  column-count: 2;
+}
+
+.page-footer__site-nav li {
+  margin-right: 60px;
+}
+
+.page-footer__site-nav a {
+  color: $tangaroa;
+
+  &:hover {
+    border-bottom: 1px solid $tangaroa;
+  }
+
+  &:active {
+    color: $black;
+    border-color: $black;
+  }
+}
+
+.page-footer__bottom {
+  padding: 13px 0;
+  border-top: 1px solid $finlandia;
+}
+
+.page-footer__bottom .content-wrapper {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  grid-gap: 142px;
+}
+
+.page-footer__copyright,
+.page-footer__site-info {
+  display: flex;
+  font-size: 13px;
+  line-height: 24px;
+  opacity: 0.5;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.page-footer__copyright p {
+  margin-top: 0;
+  margin-bottom: 13px;
+  margin-right: 75px;
+
+  &:last-child {
+    margin-right: 0;
+  }
+}
+
+.page-footer__site-info {
+  display: flex;
+  justify-content: space-between;
+  grid-gap: 75px;
+}
+
+.page-footer__site-info p {
+  margin-top: 0;
+  margin-bottom: 13px;
+}
+
+@media (max-width: $tablet-width) {
+  .page-footer__top .content-wrapper {
+    grid-gap: 20px 40px;
+  }
+
+  .page-footer__top {
+    padding: 19px 0 36px 0;
+  }
+
+  .page-footer__top-left {
+    grid-column: 1/4;
+    grid-row: 1/2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .page-footer__top-right {
+    grid-column: 1/4;
+    grid-row: 2/3;
+    padding-top: 40px;
+  }
+
+  .page-footer__top .page-footer__copyright {
+    display: block;
+  }
+
+  .page-footer__bottom .page-footer__copyright {
+    display: none;
+  }
+
+  .page-footer__copyright {
+    margin-left: 30px;
+  }
+
+  .page-footer__copyright p {
+    margin-bottom: 0;
+  }
+
+  .page-footer .accordion {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 34px;
+  }
+
+  .page-footer__site-nav {
+    column-count: 1;
+  }
+
+  .page-footer__site-nav li {
+    margin-right: 0;
+  }
+
+  .page-footer__bottom {
+    padding: 21px 0;
+  }
+
+  .page-footer__site-info {
+    grid-column: 1/4;
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .page-footer__top .content-wrapper {
+    grid-gap: 45px;
+  }
+
+  .page-footer__top {
+    padding: 46px 0 0;
+  }
+
+  .page-footer__top-left {
+    flex-direction: column;
+    grid-gap: 20px;
+  }
+
+  .page-footer__logo {
+    margin-right: 15px;
+  }
+
+  .page-footer__copyright {
+    margin-left: 0;
+    margin-top: 2px;
+  }
+
+  .page-footer__social {
+    margin-top: 12px;
+  }
+
+  .page-footer__top-right {
+    padding-top: 0;
+  }
+
+  .page-footer .accordion {
+    grid-template-columns: 1fr;
+    grid-gap: 0;
+  }
+
+  .page-footer .accordion__item {
+    padding: 28px 0;
+    position: relative;
+
+    &::before {
+      position: absolute;
+      top: 0;
+      left: -16px;
+      content: "";
+      width: 100vw;
+      height: 1px;
+      background-color: $finlandia;
+    }
+  }
+
+  .page-footer .accordion__item-title {
+    margin-bottom: 0;
+  }
+
+  .page-footer .accordion__item-content {
+    padding-top: 32px;
+    padding-right: 5px;
+  }
+
+  .page-footer__bottom {
+    padding: 25px 0;
+  }
+
+  .page-footer__site-info {
+    flex-direction: column;
+    align-items: center;
+    grid-gap: 8px;
+  }
+}

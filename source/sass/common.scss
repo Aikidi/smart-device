@@ -19,8 +19,17 @@ body {
   flex-direction: column;
 }
 
-.block {
+body.block {
   overflow: hidden;
+}
+
+body.block .page-overlay {
+  content: "";
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: $black;
+  opacity: 0.5;
 }
 
 .visually-hidden {
@@ -43,4 +52,73 @@ img {
 
 a {
   text-decoration: none;
+}
+
+.content-wrapper {
+  min-width: 308px;
+  max-width: 1432px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 9px;
+  padding-right: 12px;
+}
+
+.button,
+button[type="submit"] {
+  display: inline-block;
+  min-width: 180px;
+  min-height: 45px;
+  padding: 13px 15px;
+  border-radius: 5px;
+  border: 1px solid $white;
+  background-color: transparent;
+  font-family: "Roboto Condensed", "Arial", sans-serif;
+  font-size: 15px;
+  line-height: 16px;
+  text-align: center;
+  font-weight: 600;
+  color: $white;
+  text-transform: uppercase;
+  cursor: pointer;
+
+  &:hover {
+    background-color: $deep-sky-blue;
+  }
+
+  &:active {
+    opacity: 0.8;
+  }
+}
+
+.section-title {
+  margin-top: 0;
+  font-family: "Roboto Condensed", "Arial", sans-serif;
+  font-size: 36px;
+  line-height: 51px;
+  font-weight: 400;
+}
+
+
+@media (max-width: $tablet-width) {
+  .content-wrapper {
+    padding-left: 25px;
+    padding-right: 25px;
+  }
+
+  .section-title {
+    font-size: 32px;
+    line-height: 45px;
+  }
+}
+
+@media (max-width: $mobile-width) {
+  .content-wrapper {
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+
+  .section-title {
+    font-size: 28px;
+    line-height: 39px;
+  }
 }

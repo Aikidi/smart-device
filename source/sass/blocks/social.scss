@@ -1,0 +1,20 @@
+.social {
+  display: flex;
+  align-items: flex-end;
+  flex-wrap: wrap;
+  grid-gap: 16px;
+  padding-bottom: 5px;
+}
+
+.social__link {
+  cursor: pointer;
+  color: $light-grey;
+
+  &:hover {
+    color: $deep-sky-blue;
+  }
+
+  &:active {
+    color: $summer-sky;
+  }
+}
