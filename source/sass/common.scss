@@ -23,7 +23,7 @@ body.block {
   overflow: hidden;
 }
 
-body.block .page-overlay {
+body.block::before {
   content: "";
   position: fixed;
   width: 100vw;
@@ -64,7 +64,7 @@ a {
 }
 
 .button,
-button[type="submit"] {
+.site-form button {
   display: inline-block;
   min-width: 180px;
   min-height: 45px;
@@ -76,6 +76,7 @@ button[type="submit"] {
   font-size: 15px;
   line-height: 16px;
   text-align: center;
+  vertical-align: middle;
   font-weight: 600;
   color: $white;
   text-transform: uppercase;

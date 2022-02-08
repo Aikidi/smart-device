@@ -13,7 +13,7 @@ const saveLocalStorage = (dataName, dataContent) => {
   }
 };
 
-const newCutContent = (cutContentElement, signCount, windowSize) => {
+const cutNewContent = (cutContentElement, signCount, windowSize) => {
   if (localStorage.getItem('initText') === null) {
     localStorage.setItem('initText', cutContentElement.innerHTML.toString());
   }
@@ -27,14 +27,14 @@ const newCutContent = (cutContentElement, signCount, windowSize) => {
 const aboutContent = document.querySelector('.about__content div');
 
 window.addEventListener('resize', () => {
-  newCutContent(aboutContent, 410, 1023);
+  cutNewContent(aboutContent, 410, 1023);
 });
 
 window.onload = () => {
-  newCutContent(aboutContent, 410, 1023);
+  cutNewContent(aboutContent, 410, 1023);
 };
 
-const isPhoneValid = () => {
+const checkPhoneValid = () => {
   const phoneFields = document.querySelectorAll('input[type="tel"]');
   phoneFields.forEach((phoneField) => {
     phoneField.addEventListener('focus', () => {
@@ -54,7 +54,7 @@ const isPhoneValid = () => {
     });
   });
 };
-isPhoneValid();
+checkPhoneValid();
 
 const closeAllItems = () => {
   accordionItems.forEach((item) => {
@@ -78,7 +78,6 @@ accordionItems.forEach((item, index) => {
 
 closeAllItems();
 
-const pageOverlay = document.querySelector('.page-overlay');
 const popup = document.querySelector('.popup');
 const popupCloseButton = document.querySelector('.popup__close-button');
 
@@ -88,34 +87,39 @@ const onPopupEscKeydown = (evt) => {
   }
 };
 
-const onPageOverlayClick = () => {
-  closePopup();
-};
-
 const openPopup = () => {
   popup.classList.add('popup--open');
   pageBody.classList.add('block');
   document.addEventListener('keydown', onPopupEscKeydown);
-  pageOverlay.addEventListener('click', onPageOverlayClick);
   const nameField = popup.querySelector('input[name="name"]');
   nameField.focus();
 };
 
 const closePopup = () => {
-  popup.classList.remove('popup--open');
-  pageBody.classList.remove('block');
-  document.removeEventListener('keydown', onPopupEscKeydown);
-  pageOverlay.removeEventListener('click', onPageOverlayClick);
+  if (popup.classList.contains('popup--open')) {
+    popup.classList.remove('popup--open');
+    pageBody.classList.remove('block');
+    document.removeEventListener('keydown', onPopupEscKeydown);
+  }
 };
 
 const callbackButton = document.querySelector('.page-header__callback-button');
 
-callbackButton.addEventListener('click', ()=> {
+callbackButton.addEventListener('click', (evt)=> {
+  evt.preventDefault();
+  evt.stopPropagation();
   openPopup();
 });
 
 popupCloseButton.addEventListener('click', ()=> {
   closePopup();
+});
+
+
+pageBody.addEventListener('click', (evt)=> {
+  if (evt.target !== popup && !popup.contains(evt.target)) {
+    closePopup();
+  }
 });
 
 const allInputFields = document.querySelectorAll('input');
@@ -152,7 +156,6 @@ const checknameField = () => {
       isNameValid(evt);
     });
   });
-
 };
 
 checknameField();
