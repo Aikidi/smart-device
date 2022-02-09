@@ -14,7 +14,7 @@
 
 .page-header__top {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   padding-top: 30px;
   padding-bottom: 30px;
 }
@@ -22,10 +22,16 @@
 .page-header__logo {
   margin-right: auto;
   min-width: 202px;
+  margin-top: 2px;
+}
+
+.page-header__contacts {
+  padding: 20px 0;
 }
 
 .page-header__callback-button {
   margin-left: 48px;
+  margin-top: 6px;
 }
 
 
@@ -106,6 +112,11 @@
 
   .page-header__logo {
     min-width: 38px;
+    margin-top: 0;
+  }
+
+  .page-header__contacts {
+    padding: 12px 0 6px 0;
   }
 
   .page-header__callback-button {
@@ -166,6 +177,10 @@
   .page-header__logo img {
     width: 38px;
     height: 38px;
+  }
+
+  .page-header__contacts {
+    padding: 5px 0 6px 0;
   }
 
   .page-header__content {
