@@ -4,7 +4,7 @@
   background-image: url("../img/header-bkg.png"), url("../img/chip@1x.png");
   background-repeat: no-repeat;
   background-size: cover, 1920px 881px;
-  background-position: 0 0, 85.5% 71%;
+  background-position: 0 0, center 71%;
   color: $white;
 
   @media (min-resolution: 2dppx) {
@@ -21,6 +21,7 @@
 
 .page-header__logo {
   margin-right: auto;
+  min-width: 202px;
 }
 
 .page-header__callback-button {
@@ -32,6 +33,7 @@
   max-width: 780px;
   margin-top: 200px;
   margin-bottom: 200px;
+  margin-right: 488px;
 }
 
 .page-header__content h1 {
@@ -110,6 +112,7 @@
     max-width: 480px;
     margin-top: 92px;
     margin-bottom: 92px;
+    margin-right: auto;
     padding-left: 62px;
   }
 

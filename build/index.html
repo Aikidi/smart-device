@@ -143,7 +143,7 @@
               </div>
               <div class="site-form__field">
                 <label for="phone" class="visually-hidden">Телефон</label>
-                <input id="phone" name="phone" type="tel" pattern="[+]{1}[7]{1}[0-9]{3}[0-9]{3}[0-9]{4}" placeholder="Телефон" required="">
+                <input id="phone" name="phone" type="tel" pattern="\+7\s?[\(]{0,1}\d{3}[\)]{0,1}\s?\d{7}" placeholder="Телефон" required="">
               </div>
               <div class="site-form__field site-form__field--textarea">
                 <label for="question" class="visually-hidden">Ваш вопрос</label>
@@ -230,9 +230,15 @@
                 <div class="accordion__item-content">
                   <p>г. Мытищи, Олимпийский проспект, д.10</p>
                   <ul class="list-unstyled">
-                    <li>+7 (495) 589-40-50</li>
-                    <li>+7 (925) 003-87-67</li>
-                    <li>+7 (926) 926-080-79</li>
+                    <li>
+                      <a href="tel:+74955894050">+7 (495) 589-40-50</a>
+                    </li>
+                    <li>
+                      <a href="tel:+79250038767">+7 (925) 003-87-67</a>
+                    </li>
+                    <li>
+                      <a href="tel:+792692608079">+7 (926) 926-080-79</a>
+                    </li>
                   </ul>
                 </div>
               </li>
@@ -264,7 +270,7 @@
           </div>
           <div class="site-form__field">
             <label for="popup-form-phone" class="visually-hidden">Телефон</label>
-            <input id="popup-form-phone" name="phone" type="tel" placeholder="Телефон" required="">
+            <input id="popup-form-phone" name="phone" type="tel" pattern="\+7\s?[\(]{0,1}\d{3}[\)]{0,1}\s?\d{7}" placeholder="Телефон" required="">
           </div>
           <div class="site-form__field site-form__field--textarea">
             <label for="popup-form-question" class="visually-hidden">Ваш вопрос</label>

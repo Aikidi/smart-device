@@ -40,17 +40,33 @@ const checkPhoneValid = () => {
     phoneField.addEventListener('focus', () => {
       if (phoneField.value.length === 0) {
         phoneField.value = '+7(';
+        localStorage.setItem('phonePrev', phoneField.value.toString());
       }
     });
     phoneField.addEventListener('keyup', (evt) => {
       if (evt.code !== 'Backspace' && evt.code !== 'delete') {
-        if (phoneField.value.length === 6) {
-          phoneField.value = phoneField.value + ')';
+        if (isNaN(evt.key)) {
+          phoneField.value = localStorage.getItem('phonePrev');
         }
+        if (phoneField.value.length >= 15) {
+          phoneField.value = phoneField.value.slice(0, -1);
+        }
+        if (phoneField.value.length >= 6 && phoneField.value.match(/\((.*?\))/) === null) {
+          phoneField.value = phoneField.value.slice(0, 6) + ')' + phoneField.value.slice(6);
+        }
+        if (phoneField.value.match(/\((.*?\))/) !== null && phoneField.value.match(/\((.*?\))/)[0].length > 5) {
+          phoneField.value = phoneField.value.slice(0, 6) + ')' + phoneField.value.slice(6).replace(')', '');
+        }
+        if (phoneField.value.length === 2) {
+          phoneField.value = phoneField.value + '(';
+        }
+      } else if (phoneField.value.length === 6) {
+        phoneField.value = phoneField.value.slice(0, -1);
       }
       if (phoneField.value.length < 3) {
         phoneField.value = '+7(';
       }
+      localStorage.setItem('phonePrev', phoneField.value.toString());
     });
   });
 };
@@ -94,6 +110,11 @@ const openPopup = () => {
   const nameField = popup.querySelector('input[name="name"]');
   nameField.focus();
 };
+
+popupCloseButton.addEventListener('blur', ()=> {
+  const nameField = popup.querySelector('input[name="name"]');
+  nameField.focus();
+});
 
 const closePopup = () => {
   if (popup.classList.contains('popup--open')) {
@@ -139,7 +160,7 @@ allTextareaFields.forEach((textareaField) => {
 
 const nameFields = document.querySelectorAll('input[name="name"]');
 
-const isNameValid = (evt) => {
+const checkNameValid = (evt) => {
   evt.target.setCustomValidity('');
   let nameValue = evt.target.value;
   let nameRegExp = /^[А-Яа-яA-Za-z0-9 -]+$/;
@@ -153,9 +174,23 @@ const isNameValid = (evt) => {
 const checknameField = () => {
   nameFields.forEach((nameField) => {
     nameField.addEventListener('input', (evt) => {
-      isNameValid(evt);
+      checkNameValid(evt);
     });
   });
 };
 
 checknameField();
+
+const focusableElements = 'button, input, textarea, [tabindex]:not([tabindex="-1"])';
+const focusableContent = popup.querySelectorAll(focusableElements);
+
+document.addEventListener('keydown', (evt) => {
+  if ((evt.key === 'Tab' || evt.code === '9') && (popup.classList.contains('popup--open'))) {
+    const TabIndexArray = Array.from({length: focusableContent.length}, (v, k) => k);
+    const curTabIndex = Array.prototype.indexOf.call(focusableContent, document.activeElement);
+    const nextTabIndex = curTabIndex < 0 ? 0 : TabIndexArray.splice(evt.shiftKey ? -1 : 1).concat(TabIndexArray)[curTabIndex];
+    focusableContent[nextTabIndex].focus();
+    evt.preventDefault();
+    evt.stopPropagation();
+  }
+});

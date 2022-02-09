@@ -20,8 +20,13 @@
 .page-footer__top-left {
   grid-column: 1/2;
   grid-row: 1/3;
-  display: grid;
+  display: flex;
+  flex-direction: column;
   grid-gap: 40px;
+}
+
+.page-footer__logo {
+  margin-bottom: 10px;
 }
 
 .page-footer__top-right {
@@ -37,7 +42,7 @@
   margin-right: 60px;
 }
 
-.page-footer__site-nav a {
+.page-footer__top-right a {
   color: $tangaroa;
 
   &:hover {
@@ -105,8 +110,13 @@
     grid-column: 1/4;
     grid-row: 1/2;
     display: flex;
+    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .page-footer__logo {
+    margin-bottom: 0;
   }
 
   .page-footer__top-right {
