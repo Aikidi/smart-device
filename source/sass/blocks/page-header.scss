@@ -91,7 +91,7 @@
   .page-header {
     min-height: 686px;
     background-image: url("../img/header-bkg.png"), url("../img/chip-tb@1x.png");
-    background-position: bottom, 100% -5px;
+    background-position: bottom, 100% 0;
     background-size: cover, 330px 466px;
 
     @media (min-resolution: 2dppx) {
@@ -102,6 +102,10 @@
   .page-header__top {
     padding-top: 20px;
     padding-bottom: 20px;
+  }
+
+  .page-header__logo {
+    min-width: 38px;
   }
 
   .page-header__callback-button {
@@ -144,7 +148,7 @@
 
 @media (max-width: $mobile-width) {
   .page-header {
-    min-height: 648px;
+    min-height: 647px;
     background-image: url("../img/header-bkg.png"), url("../img/chip-mb@1x.png");
     background-position: calc(50% + -62px) -10px, 100% 0;
     background-size: cover, 320px 529px;
@@ -166,7 +170,7 @@
 
   .page-header__content {
     margin-top: 210px;
-    margin-bottom: 70px;
+    margin-bottom: 69px;
     padding-left: 0;
   }
 
